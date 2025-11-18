@@ -34,9 +34,9 @@ def clear_terminal():
         os.system('cls' if os.name == 'nt' else 'clear')
 clear_terminal()  # Clear terminal (optional, fails gracefully)
 
-# Copy all .py files including this backup script
+# Copy all .py, .json, and .csv files including this backup script
 for fname in os.listdir(src_folder):
-    if fname.endswith(".py"):
+    if fname.lower().endswith((".py", ".json", ".csv")):
         base, ext = os.path.splitext(fname)
         new_name = f"{base}_{timestamp}{ext}"
         src_path = os.path.join(src_folder, fname)
